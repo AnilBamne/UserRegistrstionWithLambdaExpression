@@ -34,6 +34,7 @@ namespace UserRegistrstionWithLambdaExpression
                     Console.WriteLine(result4);
                     break;
                 case 6:
+                    user.EmailSamples();
                     break;
             }
         }
