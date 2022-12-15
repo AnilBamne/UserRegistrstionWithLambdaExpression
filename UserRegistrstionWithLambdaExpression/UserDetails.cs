@@ -54,5 +54,13 @@ namespace UserRegistrstionWithLambdaExpression
             string email=Console.ReadLine();
            return Validate(email,regex);
         }
+
+        public bool PhoneNumber()
+        {
+            string regex = "^[9]{1}[1]{1}[ ]{1}[6-9]{1}[0-9]{9}$";
+            Console.WriteLine("Enter PhoneNumber");
+            string PhoneNumber = Console.ReadLine();
+            return Validate(PhoneNumber, regex);
+        }
     }
 }

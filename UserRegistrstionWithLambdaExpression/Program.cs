@@ -9,7 +9,7 @@ namespace UserRegistrstionWithLambdaExpression
             Console.WriteLine("Welcome to User Registrstion With Lambda Expression programs");
             UserDetails user = new UserDetails();
             
-            Console.WriteLine("Choose option\n1:First Name\n2:Last Name\n3:Email");
+            Console.WriteLine("Choose option\n1:First Name\n2:Last Name\n3:Email\n4:Phone number\n5:Password\n6:Email samples");
             int option=int.Parse(Console.ReadLine());
             switch (option)
             {
@@ -26,6 +26,8 @@ namespace UserRegistrstionWithLambdaExpression
                     Console.WriteLine(result2);
                     break;
                 case 4:
+                    bool result3 = user.PhoneNumber();
+                    Console.WriteLine(result3);
                     break;
             }
         }
