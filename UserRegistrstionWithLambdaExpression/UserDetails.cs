@@ -9,15 +9,50 @@ namespace UserRegistrstionWithLambdaExpression
 {
     public class UserDetails
     {
-        //Regex pattern for First name and Last name validation
-        public string regexForName = "^[A-Z][A-za-z]{2,}";
+        /// <summary>
+        /// Using Lambda expression
+        /// Validating is data is matching with regex pattern or not
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="regex"></param>
+        /// <returns>true/false</returns>
+        public bool Validate(string data,string regex) => Regex.IsMatch(data, regex);  //UC3
 
         /// <summary>
-        /// Validating first name.
+        /// Validating first name
         /// </summary>
-        /// <param name="firstName"></param>
-        /// <returns> true/false</returns>
-        public bool FirstNameValidate(string firstName) => Regex.IsMatch(firstName, regexForName);  //UC1
-        public bool LastNameValidate(string laststName) => Regex.IsMatch(laststName, regexForName);  //UC2
+        /// <returns></returns>
+        public bool FirstNameValidate()
+        {
+            string regex = "^[A-Z][A-za-z]{2,}";
+            Console.WriteLine("Enter first name");
+            string firstName = Console.ReadLine();
+            return Validate(firstName, regex);
+        }
+
+        /// <summary>
+        /// Validating last name
+        /// </summary>
+        /// <returns></returns>
+        public bool LastNameValidate()
+        {
+            string regex = "^[A-Z][A-za-z]{2,}";
+            Console.WriteLine("Enter last name");
+            string lasttName = Console.ReadLine();
+            return Validate(lasttName, regex);
+        }
+
+        /// <summary>
+        /// Validating email id
+        /// Enter Email ID \n E.g. : abc.xyz@bl.co.in
+        /// </summary>
+        /// <returns></returns>
+        public bool Email()
+        {
+            string regex = "^[a-z]{3,}[.][a-z]{3,}[@][a-z]{2,}[.][a-z]{2}[.][a-z]{2}$";
+            Console.WriteLine("Enter email");
+            string email=Console.ReadLine();
+           return Validate(email,regex);
+        }
     }
 }
