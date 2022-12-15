@@ -19,6 +19,10 @@ namespace UserRegistrstionWithLambdaExpression
                     Console.WriteLine(result);
                     break;
                 case 2:
+                    Console.WriteLine("Enter last name");
+                    string lastName=Console.ReadLine();
+                    bool result1 = user.LastNameValidate(lastName);
+                    Console.WriteLine(result1);
                     break;
                 case 3:
                     break;
