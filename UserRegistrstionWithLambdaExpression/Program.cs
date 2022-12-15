@@ -29,6 +29,12 @@ namespace UserRegistrstionWithLambdaExpression
                     bool result3 = user.PhoneNumber();
                     Console.WriteLine(result3);
                     break;
+                case 5:
+                    bool result4 = user.Password();
+                    Console.WriteLine(result4);
+                    break;
+                case 6:
+                    break;
             }
         }
     }
