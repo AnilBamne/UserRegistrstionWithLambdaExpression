@@ -10,6 +10,25 @@ namespace RegexWithLambdaAndMSTest
     public class Patterns
     {
         /// <summary>
+        /// Default constructor
+        /// </summary>
+        public Patterns()
+        {
+
+        }
+
+        public string message;
+
+        /// <summary>
+        /// Parameterised constructor
+        /// </summary>
+        /// <param name="message"></param>
+        public Patterns(string message)
+        {
+            this.message = message;
+        }
+
+        /// <summary>
         /// Validating Regex patterns with Ms test
         /// uc1:First name
         /// </summary>
@@ -47,6 +66,59 @@ namespace RegexWithLambdaAndMSTest
         {
             string regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]{1}).{8}";
             bool result = Regex.IsMatch(password, regex);
+            return result;
+        }
+
+
+
+        /// <summary>
+        /// Validating Entries : if message contains Happy -> Entry succesful or if Sad -> Unsuccessfull
+        /// </summary>
+
+        public string CheckForFirstName()
+        {
+            if (message.Contains("Happy"))
+                return "Entry is successful";
+            else
+                return "Entry is not successful";
+        }
+        public string CheckForLastName()
+        {
+            if (message.Contains("Happy"))
+                return "Entry is successful";
+            else
+                return "Entry is not successful";
+        }
+        public string CheckForEmail()
+        {
+            if (message.Contains("Happy"))
+                return "Entry is successful";
+            else
+                return "Entry is not successful";
+        }
+        public string CheckForMobile()
+        {
+            if (message.Contains("Happy"))
+                return "Entry is successful";
+            else
+                return "Entry is not successful";
+        }
+        public string CheckForPassword()
+        {
+            if (message.Contains("Happy"))
+                return "Entry is successful";
+            else
+                return "Entry is not successful";
+        }
+
+
+
+
+        public bool EmailSamples(string emailSamples)
+        {
+            string regex = "^[a-z0-9]{1,}([._+-]{1}[a-z0-9]{1,}){0,1}[@]{1}[a-z0-9]{1,}[.]{1}[a-zA-Z]{2,3}([.]{1}[a-z]{2,3}){0,1}$";
+            bool result = ValidatEmailSamples(emailSamples, regex);
+            bool ValidatEmailSamples(string data, string regex) => Regex.IsMatch(data, regex);
             return result;
         }
     }

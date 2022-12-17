@@ -71,7 +71,7 @@ namespace UserRegistrationTest
         [DataRow("AnilBamn@1234", true)]
         [DataRow("abxu1", false)]
         [DataRow("aaaAaaaa#22aaa", true)]
-        public void Rule1(string password, bool result)
+        public void Password(string password, bool result)
         {
             ///AAA -> Arrange Act Assert
             Patterns p = new Patterns();
@@ -79,6 +79,104 @@ namespace UserRegistrationTest
             bool actual = p.Password(password);
             //Assert
             Assert.AreEqual(result, actual);
+        }
+
+        /// <summary>
+        /// Test Methods for Entries with Parameter Happy or Sad message.
+        /// </summary>
+        /// <param name="message"></param>
+
+
+        [TestMethod]
+        [TestCategory("Entry check UC 10")]
+        [DataRow("Happy")]
+        public void GivenMessage_WhenHappy_ReturnEntrySucessfulForFirstName(string message)
+        {
+            Patterns pattern = new Patterns(message);
+            string expected = pattern.CheckForFirstName();
+            Assert.AreEqual(expected, "Entry is successful");
+        }
+
+        [TestMethod]
+        [TestCategory("Entry check UC 10")]
+        [DataRow("Sad")]
+        public void GivenMessage_WhenSad_ReturnEntryUnSucessfulForFirstName(string message)
+        {
+            Patterns pattern = new Patterns(message);
+            string expected = pattern.CheckForFirstName();
+            Assert.AreEqual(expected, "Entry is not successful");
+        }
+        [TestMethod]
+        [TestCategory("Entry check UC 10")]
+        [DataRow("Happy")]
+        public void GivenMessage_WhenHappy_ReturnEntrySucessfulForLastName(string message)
+        {
+            Patterns pattern = new Patterns(message);
+            string expected = pattern.CheckForLastName();
+            Assert.AreEqual(expected, "Entry is successful");
+        }
+        [TestMethod]
+        [TestCategory("Entry check UC 10")]
+        [DataRow("Sad")]
+        public void GivenMessage_WhenSad_ReturnEntryUnSucessfulForLastName(string message)
+        {
+            Patterns pattern = new Patterns(message);
+            string expected = pattern.CheckForLastName();
+            Assert.AreEqual(expected, "Entry is not successful");
+        }
+        [TestMethod]
+        [TestCategory("Entry check UC 10")]
+        [DataRow("Happy")]
+        public void GivenMessage_WhenHappy_ReturnEntrySucessfulForEmail(string message)
+        {
+            Patterns pattern = new Patterns(message);
+            string expected = pattern.CheckForEmail();
+            Assert.AreEqual(expected, "Entry is successful");
+        }
+        [TestMethod]
+        [TestCategory("Entry check UC 10")]
+        [DataRow("Sad")]
+        public void GivenMessage_WhenSad_ReturnEntryUnSucessfulForEmail(string message)
+        {
+            Patterns pattern = new Patterns(message);
+            string expected = pattern.CheckForEmail();
+            Assert.AreEqual(expected, "Entry is not successful");
+        }
+        [TestMethod]
+        [TestCategory("Entry check UC 10")]
+        [DataRow("Happy")]
+        public void GivenMessage_WhenHappy_ReturnEntrySucessfulForMobile(string message)
+        {
+            Patterns pattern = new Patterns(message);
+            string expected = pattern.CheckForMobile();
+            Assert.AreEqual(expected, "Entry is successful");
+        }
+        [TestMethod]
+        [TestCategory("Entry check UC 10")]
+        [DataRow("Sad")]
+        public void GivenMessage_WhenSad_ReturnEntryUnSucessfulForMobile(string message)
+        {
+            Patterns pattern = new Patterns(message);
+            string expected = pattern.CheckForMobile();
+            Assert.AreEqual(expected, "Entry is not successful");
+        }
+        [TestMethod]
+        [TestCategory("Entry check UC 10")]
+        [DataRow("Happy")]
+        public void GivenMessage_WhenHappy_ReturnEntrySucessfulForPassword(string message)
+        {
+            Patterns pattern = new Patterns(message);
+            string expected = pattern.CheckForPassword();
+            Assert.AreEqual(expected, "Entry is successful");
+        }
+        [TestMethod]
+        [TestCategory("Entry check UC 10")]
+        [DataRow("Sad")]
+        public void GivenMessage_WhenSad_ReturnEntryUnSucessfulForPassword(string message)
+        {
+            Patterns pattern = new Patterns(message);
+            string expected = pattern.CheckForPassword();
+            Assert.AreEqual(expected, "Entry is not successful");
         }
 
     }
