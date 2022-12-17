@@ -112,14 +112,23 @@ namespace RegexWithLambdaAndMSTest
         }
 
 
-
-
-        public bool EmailSamples(string emailSamples)
+        public bool ValidatEmailSamples(String email)
         {
             string regex = "^[a-z0-9]{1,}([._+-]{1}[a-z0-9]{1,}){0,1}[@]{1}[a-z0-9]{1,}[.]{1}[a-zA-Z]{2,3}([.]{1}[a-z]{2,3}){0,1}$";
-            bool result = ValidatEmailSamples(emailSamples, regex);
-            bool ValidatEmailSamples(string data, string regex) => Regex.IsMatch(data, regex);
-            return result;
+            return Regex.IsMatch(email, regex);
+        }
+
+        public string checkMultipleEntriesOfEmail(string email1, string email2, string email3, string email4)
+        {
+            Patterns p = new Patterns(message);
+            bool emailForEntry1 = p.ValidatEmailSamples(email1);
+            bool emailForEntry2 = p.ValidatEmailSamples(email2);
+            bool emailForEntry3 = p.ValidatEmailSamples(email3);
+            bool emailForEntry4 = p.ValidatEmailSamples(email4);
+            if (emailForEntry1 && emailForEntry2 && emailForEntry3 && emailForEntry4)
+                return "Entry is successful";
+            else
+                return "Entry is not successful";
         }
     }
 }

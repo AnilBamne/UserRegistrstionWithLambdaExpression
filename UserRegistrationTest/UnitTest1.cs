@@ -1,3 +1,4 @@
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RegexWithLambdaAndMSTest;
 
@@ -179,5 +180,14 @@ namespace UserRegistrationTest
             Assert.AreEqual(expected, "Entry is not successful");
         }
 
+
+        [TestMethod]
+        [TestCategory("Entry check for multiple Email samples UC 11")]
+        public void GivenParameterizedTest_ToValidateMultipleEntries_ReturnEntryIsSucessful()
+        {
+            Patterns pattern = new Patterns();
+            var result = pattern.checkMultipleEntriesOfEmail("abc@yahoo.com", "abc-100@yahoo.com", "abc@gmail.com.com", "abc+100@gmail.com");
+            Assert.AreEqual(result, "Entry is successful");
+        }
     }
 }
