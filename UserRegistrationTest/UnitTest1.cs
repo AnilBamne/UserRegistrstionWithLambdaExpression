@@ -268,5 +268,74 @@ namespace UserRegistrationTest
                 Assert.AreEqual("Invalid Password Format", exception.Message);
             }
         }
+
+        //--------- Refactor Use Lambda Expression ----------//
+
+
+        /// <summary>
+        /// Givens the first name whenvalid then should return true using lambda.
+        /// </summary>
+        /// <param name="firstName">The first name.</param>
+        [TestMethod]
+        [TestCategory("Refactor Use Lambda UC 13")]
+        [DataRow("Anil")]
+        public void GivenFirstName_Whenvalid_ThenShouldReturnTrueUsingLambda(string firstName)
+        {
+            UserRegistrationRegex userRegistrationRegex = new UserRegistrationRegex();
+            bool validateFirstName = userRegistrationRegex.isValidFirstName(firstName);
+            Assert.AreEqual(true, validateFirstName);
+        }
+        /// <summary>
+        /// Givens the last name when valid then should return true using lambda.
+        /// </summary>
+        /// <param name="lastName">The last name.</param>
+        [TestMethod]
+        [TestCategory("Refactor Use Lambda UC 13")]
+        [DataRow("Bamne")]
+        public void GivenLastName_WhenValid_ThenShouldReturnTrueUsingLambda(string lastName)
+        {
+            UserRegistrationRegex userRegistrationRegex = new UserRegistrationRegex();
+            bool validateLastName = userRegistrationRegex.isValidLastName(lastName);
+            Assert.AreEqual(true, validateLastName);
+        }
+        /// <summary>
+        /// Givens the email when valid then should return true using lambda.
+        /// </summary>
+        /// <param name="email">The email.</param>
+        [TestMethod]
+        [TestCategory("Refactor Use Lambda UC 13")]
+        [DataRow("abc@yahoo.com")]
+        public void GivenEmail_WhenValid_ThenShouldReturnTrueUsingLambda(string email)
+        {
+            UserRegistrationRegex userRegistrationRegex = new UserRegistrationRegex();
+            bool validateEmail = userRegistrationRegex.isValidEmail(email);
+            Assert.AreEqual(true, validateEmail);
+        }
+        /// <summary>
+        /// Givens the mobile format when valid then should return true using lambda.
+        /// </summary>
+        /// <param name="mobileFormat">The mobile format.</param>
+        [TestMethod]
+        [TestCategory("Refactor Use Lambda UC 13")]
+        [DataRow("91 8149713160")]
+        public void GivenMobileFormat_WhenValid_ThenShouldReturnTrueUsingLambda(string mobileFormat)
+        {
+            UserRegistrationRegex userRegistrationRegex = new UserRegistrationRegex();
+            bool validateMobileFormat = userRegistrationRegex.isValidMobileNumber(mobileFormat);
+            Assert.AreEqual(true, validateMobileFormat);
+        }
+        /// <summary>
+        /// Givens the password format when valid then should return true using lambda.
+        /// </summary>
+        /// <param name="preDefinedPassword">The pre defined password.</param>
+        [TestMethod]
+        [TestCategory("Refactor Use Lambda UC 13")]
+        [DataRow("AnilBamne@123")]
+        public void GivenPasswordFormat_WhenValid_ThenShouldReturnTrueUsingLambda(string preDefinedPassword)
+        {
+            UserRegistrationRegex userRegistrationRegex = new UserRegistrationRegex();
+            bool validatePassword = userRegistrationRegex.isValidPassword(preDefinedPassword);
+            Assert.AreEqual(true, validatePassword);
+        }
     }
 }
