@@ -189,5 +189,84 @@ namespace UserRegistrationTest
             var result = pattern.checkMultipleEntriesOfEmail("abc@yahoo.com", "abc-100@yahoo.com", "abc@gmail.com.com", "abc+100@gmail.com");
             Assert.AreEqual(result, "Entry is successful");
         }
+
+        //---------  Using Custom Exception ----------------//
+
+        [TestMethod]
+        [TestCategory("Refactor Use custom exception UC 12")]
+        [DataRow("Anil")]   //fail -> No exception will be thrown
+        [DataRow("anil")]   //
+        public void GivenFirstName_WhenInvalid_ThenShouldThrowInvalidFirstNameException(string firstName)
+        {
+            try
+            {
+                Patterns pattern = new Patterns();
+                pattern.CheckFirstName(firstName);
+            }
+            catch (UserRegistrationException exception)
+            {
+                Assert.AreEqual("Invalid First Name Format", exception.Message);
+            }
+        }
+        [TestMethod]
+        [TestCategory("Refactor Use custom exception UC 12")]
+        [DataRow("bamne")]
+        public void GivenLastName_WhenInvalid_ThenShouldThrowInvalidLastNameException(string lastName)
+        {
+            try
+            {
+                Patterns pattern = new Patterns();
+                pattern.CheckLastName(lastName);
+            }
+            catch (UserRegistrationException exception)
+            {
+                Assert.AreEqual("Invalid Last Name Format", exception.Message);
+            }
+        }
+        [TestMethod]
+        [TestCategory("Refactor Use custom exception UC 12")]
+        [DataRow("abc@.com.my")]
+        public void GivenEmail_WhenInvalid_ThenShouldThrowInvalidEmailException(string email)
+        {
+            try
+            {
+                Patterns pattern = new Patterns();
+                pattern.CheckEmail(email);
+            }
+            catch (UserRegistrationException exception)
+            {
+                Assert.AreEqual("Invalid Email Format", exception.Message);
+            }
+        }
+        [TestMethod]
+        [TestCategory("Refactor Use custom exception UC 12")]
+        [DataRow("911 8149713160")]
+        public void GivenMobileFormat_WhenInvalid_ThenShouldThrowInvalidMobileFormatException(string mobileFormat)
+        {
+            try
+            {
+                Patterns pattern = new Patterns();
+                pattern.CheckMobile(mobileFormat);
+            }
+            catch (UserRegistrationException exception)
+            {
+                Assert.AreEqual("Invalid Mobile Number Format", exception.Message);
+            }
+        }
+        [TestMethod]
+        [TestCategory("Refactor Use custom exception UC 12")]
+        [DataRow("anil@1")]
+        public void GivenPasswordFormat_WhenInvalid_ThenShouldThrowInvalidPasswordFormatException(string preDefinedPassword)
+        {
+            try
+            {
+                Patterns pattern = new Patterns();
+                pattern.CheckPassword(preDefinedPassword);
+            }
+            catch (UserRegistrationException exception)
+            {
+                Assert.AreEqual("Invalid Password Format", exception.Message);
+            }
+        }
     }
 }

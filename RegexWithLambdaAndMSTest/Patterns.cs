@@ -27,7 +27,7 @@ namespace RegexWithLambdaAndMSTest
         {
             this.message = message;
         }
-
+        UserRegistrationRegex userRegistrationRegex=new UserRegistrationRegex();
         /// <summary>
         /// Validating Regex patterns with Ms test
         /// uc1:First name
@@ -129,6 +129,64 @@ namespace RegexWithLambdaAndMSTest
                 return "Entry is successful";
             else
                 return "Entry is not successful";
+        }
+
+        // uc12 : Refactor using Custom exceptions 
+
+        public void CheckFirstName(string firstName)
+        {
+            if (userRegistrationRegex.ValidateFirstName(firstName))
+            {
+                Console.WriteLine("First Name is valid");
+            }
+            else
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_FIRSTNAME, "Invalid First Name Format");
+            }
+        }
+        public void CheckLastName(string lastName)
+        {
+            if (userRegistrationRegex.ValidateLastName(lastName))
+            {
+                Console.WriteLine("Last Name is valid");
+            }
+            else
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_LASTNAME, "Invalid Last Name Format");
+            }
+        }
+        public void CheckEmail(string email)
+        {
+            if (userRegistrationRegex.ValidateEmail(email))
+            {
+                Console.WriteLine("email is valid");
+            }
+            else
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_EMAIL, "Invalid Email Format");
+            }
+        }
+        public void CheckMobile(string mobileFormat)
+        {
+            if (userRegistrationRegex.ValidateMobileFormat(mobileFormat))
+            {
+                Console.WriteLine("mobile format is valid");
+            }
+            else
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_PHONE, "Invalid Mobile Number Format");
+            }
+        }
+        public void CheckPassword(string preDefinedPassword)
+        {
+            if (userRegistrationRegex.ValidatePreDefinedPassword(preDefinedPassword))
+            {
+                Console.WriteLine("password format is valid");
+            }
+            else
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_PASSWORD, "Invalid Password Format");
+            }
         }
     }
 }
